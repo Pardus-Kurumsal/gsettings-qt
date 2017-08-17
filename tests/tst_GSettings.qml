@@ -93,15 +93,6 @@ TestCase {
     compare(settings.schema.choices('aKeyThatsNotInTheSchema'), []);
   }
 
-  function test_reset() {
-    settings.testInteger = 4;
-
-    changesSpy.clear();
-    settings.schema.reset('testInteger');
-    compare(settings.testInteger, 42);
-    tryCompare(changesSpy, "count", 1);
-  }
-
   function test_invalid_schema() {
     compare(invalid_settings.schema.isValid, false);
     compare(invalid_settings.schema.testInteger, undefined);
